@@ -1,4 +1,4 @@
-
+import { Outlet, Link } from "react-router-dom";
 const Navbar = () => {
     return (
         <>
@@ -6,16 +6,18 @@ const Navbar = () => {
                 <h3 className="font-bold text-xl">Wechat</h3>
                 <ul className="flex items-center justify-end gap-10">
                     <li>
-                        <a href="/">Home</a>
+                        <Link to="/">Home</Link>
                     </li>
                     <li>
-                        <a href="/login">Login</a>
+                        <Link to="/login">Login</Link>
                     </li>
                     <li>
-                        <a href="/signup">Signup</a>
+                        <Link to="/signup">Signup</Link>
                     </li>
                 </ul>
             </nav>
+
+            <Outlet />
         </>
     )
 }
