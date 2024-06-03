@@ -1,9 +1,10 @@
 
 const Login = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 flex-col">
-      <img src="/wechat-logo.webp" alt="Wechat logo" className="sm:hidden md:hidden lg:w-32 lg:block" />
-      <form className="shadow-lg px-10 pt-1 pb-4 bg-white sm:w-3/4 lg:w-1/3 rounded-md">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 flex-col p-5">
+      <img style={{ filter: 'hue-rotate(150deg)' }}
+        src="/wechat-logo.webp" alt="Wechat logo" className="hidden w-32 lg:block md:block" />
+      <form className="shadow-lg px-10 py-6 bg-white w-full md:w-1/3 lg:w-1/3 rounded-md">
         <h1 className="text-2xl font-semibold text-gray-600 my-5">Sign In</h1>
         <div className="border my-4 border-1"></div>
         <div className="mt-4">
@@ -27,7 +28,14 @@ const Login = () => {
         <button type="button" className="block w-full rounded-md border-0 py-1.5 px-5 text-slate-100 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset bg-indigo-600 focus:ring-indigo-500 sm:text-sm sm:leading-6">Facebook</button>
 
         <button type="button" className="block w-full rounded-md border-0 py-1.5 px-5 text-black mt-2 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset bg-slate-100 focus:ring-indigo-500 sm:text-sm sm:leading-6">Google</button>
+
+        <div className="border my-4 border-1"></div>
+        <div className="text-center">
+          Don't have an account? <a href="#">Register</a>
+        </div>
+        <br />
       </form>
+      <br /><br /><br />
     </div>
   )
 }
