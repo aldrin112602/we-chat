@@ -2,7 +2,7 @@
 const Login = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 flex-col p-5">
-      <img style={{ filter: 'hue-rotate(150deg)' }}
+      <img style={{ filter: 'hue-rotate(150deg)', marginTop: '-2rem' }}
         src="/wechat-logo.webp" alt="Wechat logo" className="hidden w-32 lg:block md:block" />
       <form className="shadow-lg px-10 py-6 bg-white w-full md:w-1/3 lg:w-1/3 rounded-md">
         <h1 className="text-2xl font-semibold text-gray-600 my-5">Sign In</h1>
