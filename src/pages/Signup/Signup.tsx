@@ -1,4 +1,33 @@
-const Signup = () => {
+import React from "react";
+
+interface FormProps {
+  onSubmit: (data: FormData) => void;
+}
+
+interface FormData {
+  name: string;
+  email: string;
+  username: string;
+  password: string;
+}
+
+const Signup = ({ onSubmit }: FormProps) => {
+  const [formData, setFormData] = React.useState<FormData>({
+    name: "",
+    email: "",
+    username: "",
+    password: "",
+  });
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    onSubmit(formData);
+  };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 flex-col p-5">
       <img
@@ -7,12 +36,17 @@ const Signup = () => {
         alt="Wechat logo"
         className="hidden w-32 lg:block md:block"
       />
-      <form className="shadow-lg px-10 py-6 bg-white w-full md:w-1/3 lg:w-1/3 rounded-md">
+      <form
+        onSubmit={handleSubmit}
+        className="shadow-lg px-10 py-6 bg-white w-full md:w-1/3 lg:w-1/3 rounded-md"
+      >
         <h1 className="text-2xl font-semibold text-gray-600 my-5">Sign Up</h1>
         <div className="border my-4 border-1"></div>
         <div className="mt-2">
           <label htmlFor="name">Name</label>
           <input
+            onChange={handleInputChange}
+            value={formData.name}
             name="name"
             required
             type="text"
@@ -23,6 +57,8 @@ const Signup = () => {
         <div className="mt-2">
           <label htmlFor="email">Email</label>
           <input
+            onChange={handleInputChange}
+            value={formData.email}
             name="email"
             required
             type="email"
@@ -33,6 +69,8 @@ const Signup = () => {
         <div className="mt-2">
           <label htmlFor="uname">Username</label>
           <input
+            onChange={handleInputChange}
+            value={formData.username}
             name="username"
             required
             type="text"
@@ -43,6 +81,8 @@ const Signup = () => {
         <div className="mt-2">
           <label htmlFor="password">Password</label>
           <input
+            onChange={handleInputChange}
+            value={formData.password}
             name="password"
             required
             type="password"

@@ -7,13 +7,33 @@ import { NoPage } from "./pages/NoPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const App = () => {
+
+  // handle login
+  const handleLogin = ( data: {
+    username: string
+    password: string
+  }) => {
+    console.log( data );
+  }
+
+  // handle signup
+  const handleSignup = ( data: {
+    name: string;
+    email: string;
+    username: string;
+    password: string;
+  }) => {
+    console.log( data );
+  }
+
+
   return (
     <>
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login onSubmit={ handleLogin }/>} />
+          <Route path="/signup" element={<Signup onSubmit={ handleSignup }/>} />
           <Route index path="/" element={<Home />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
