@@ -1,5 +1,13 @@
 import { Outlet, Link } from "react-router-dom";
-const Navbar = () => {
+
+interface FormProps {
+  isAuth: () => string | undefined | null;
+}
+
+const Navbar = ({ isAuth }: FormProps) => {
+  const userToken = isAuth();
+  console.log(userToken);
+  
   return (
     <>
       <nav className="w-full p-5 px-10 bg-white shadow-lg flex items-center justify-between">
