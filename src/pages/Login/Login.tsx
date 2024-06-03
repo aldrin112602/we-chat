@@ -1,13 +1,28 @@
-import { useState } from "react";
+import React from "react";
 
-const Login = () => {
-  const [formInputs, setFormInputs] = useState({
+interface FormProps {
+  onSubmit: (data: FormData) => void;
+}
+
+interface FormData {
+  username: string;
+  password: string;
+}
+
+const Login = ({ onSubmit }: FormProps) => {
+  const [formData, setFormData] = React.useState<FormData>({
     username: "",
     password: "",
   });
 
-  const handleSubmit = (ev: React.FormEvent) => {
-    ev.preventDefault();
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    onSubmit(formData);
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 flex-col p-5">
@@ -26,13 +41,8 @@ const Login = () => {
         <div className="mt-2">
           <label htmlFor="uname">Username</label>
           <input
-            onChange={(e) =>
-              setFormInputs((curr) => ({
-                password: curr.password,
-                username: e.target.value,
-              }))
-            }
-            value={formInputs.username}
+            onChange={handleInputChange}
+            value={formData.username}
             name="username"
             required
             type="text"
@@ -43,13 +53,8 @@ const Login = () => {
         <div className="mt-2">
           <label htmlFor="password">Password</label>
           <input
-            onChange={(e) =>
-              setFormInputs((curr) => ({
-                password: e.target.value,
-                username: curr.username,
-              }))
-            }
-            value={formInputs.password}
+            onChange={handleInputChange}
+            value={formData.password}
             name="password"
             required
             type="password"
