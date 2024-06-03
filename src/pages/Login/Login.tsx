@@ -2,7 +2,7 @@
 const Login = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 flex-col">
-      <img style={{ filter: 'grayscale(100%)' }} src="/wechat-logo.webp" alt="Wechat logo" className="sm:w-3/4 lg:w-32" />
+      <img src="/wechat-logo.webp" alt="Wechat logo" className="sm:hidden md:hidden lg:w-32 lg:block" />
       <form className="shadow-lg px-10 pt-1 pb-4 bg-white sm:w-3/4 lg:w-1/3 rounded-md">
         <h1 className="text-2xl font-semibold text-gray-600 my-5">Sign In</h1>
         <div className="border my-4 border-1"></div>
