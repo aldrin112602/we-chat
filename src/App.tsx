@@ -1,5 +1,5 @@
 import { Login } from "./pages/Login"
-const App = () => {
+const App: React.FC = () => {
   return (
     <>
       <Login />

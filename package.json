@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "tailwind": "npx tailwindcss -i ./src/input.css -o ./src/index.css --watch",
+    "push": "git diff-index --quiet HEAD || (git add . && git commit -m \"Updated commit\" && git push)",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
