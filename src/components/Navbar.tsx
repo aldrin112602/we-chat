@@ -16,13 +16,13 @@ const Navbar = ({ isAuth }: FormProps) => {
           {!userToken && (
             <>
               <li>
-                <Link to="/">Home</Link>
+                <Link style={{ fontWeight: '300' }} className="hover:text-red-600 hover:underline" to="/">Home</Link>
               </li>
               <li>
-                <Link to="/login">Login</Link>
+                <Link style={{ fontWeight: '300' }} className="hover:text-red-600 hover:underline" to="/login">Login</Link>
               </li>
               <li>
-                <Link to="/signup">Signup</Link>
+                <Link style={{ fontWeight: '300' }} className="hover:text-red-600 hover:underline" to="/signup">Signup</Link>
               </li>
             </>
           )}
@@ -31,16 +31,16 @@ const Navbar = ({ isAuth }: FormProps) => {
           {userToken && (
             <>
               <li>
-                <Link to="/home">Home</Link>
+                <Link style={{ fontWeight: '300' }} className="hover:text-red-600 hover:underline" to="/home">Home</Link>
               </li>
               <li>
-                <Link to="/friends">Friends</Link>
+                <Link style={{ fontWeight: '300' }} className="hover:text-red-600 hover:underline" to="/friends">Friends</Link>
               </li>
               <li>
-                <Link to="/messages">Messages</Link>
+                <Link style={{ fontWeight: '300' }} className="hover:text-red-600 hover:underline" to="/messages">Messages</Link>
               </li>
               <li>
-                <Link to="/logout">Logout</Link>
+                <Link style={{ fontWeight: '300' }} className="hover:text-red-600 hover:underline" to="/logout">Logout</Link>
               </li>
             </>
           )}
