@@ -5,7 +5,9 @@ const Footer: React.FC = () => {
     <footer className="bg-gray-600 text-white py-6">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div className="mb-4 md:mb-0">
-          <h2 className="text-lg font-bold text-center md:text-left">Contact</h2>
+          <h2 className="text-lg font-bold text-center md:text-left">
+            Contact
+          </h2>
           <ul className="flex items-center justify-center gap-7">
             <li>
               <a
