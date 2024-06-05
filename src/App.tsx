@@ -3,15 +3,29 @@ import { Signup } from "./pages/Signup";
 import { Home } from "./pages/Home";
 import Navbar from "./components/Navbar";
 import { NoPage } from "./pages/NoPage";
-
+import axios from "axios";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Cookies from "js-cookie";
+
+
+const apiBaseUrl = import.meta.env.API_BASE_URL || 'http://localhost:3000';
 
 const App = () => {
   // handle login
   const handleLogin = (data: { username: string; password: string }) => {
-    console.log(data);
+    axios.post(`${apiBaseUrl}/api/user/signIn`, data)
+      .then(res => {
+
+        console.log(res.data)
+        // const token = res.data.token;
+        // Cookies.set("userToken", token);
+        // window.location.reload();
+      })
+      .catch(err => {
+        console.error("Login error:", err);
+      });
   };
+  
 
   // handle signup
   const handleSignup = (data: {
