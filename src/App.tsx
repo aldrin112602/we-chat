@@ -13,7 +13,7 @@ const apiBaseUrl = import.meta.env.API_BASE_URL || 'http://localhost:3000';
 const App = () => {
   // handle login
   const handleLogin = (data: { username: string; password: string }) => {
-    axios.post(`${apiBaseUrl}/api/signIn`, data)
+    axios.post(`${apiBaseUrl}/api/user/signIn`, data)
       .then(res => {
 
         console.log(res.data)
@@ -22,7 +22,8 @@ const App = () => {
         // window.location.reload();
       })
       .catch(err => {
-        console.error("Login error:", err);
+        // console.error("Login error:", err);
+        console.log(err.response.data)
       });
   };
   
