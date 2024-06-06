@@ -35,7 +35,18 @@ const App = () => {
     username: string;
     password: string;
   }) => {
-    console.log(data);
+    axios.post(`${apiBaseUrl}/api/user/signUp`, data)
+      .then(res => {
+
+        console.log(res.data)
+        // const token = res.data.token;
+        // Cookies.set("userToken", token);
+        // window.location.reload();
+      })
+      .catch(err => {
+        // console.error("Login error:", err);
+        console.log(err.response.data)
+      });
   };
 
   // check Auth user
