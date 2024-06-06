@@ -15,15 +15,13 @@ const App = () => {
   const handleLogin = (data: { username: string; password: string }) => {
     axios.post(`${apiBaseUrl}/api/user/signIn`, data)
       .then(res => {
-
-        console.log(res.data)
-        // const token = res.data.token;
-        // Cookies.set("userToken", token);
-        // window.location.reload();
+        const token = res.data.user._id;
+        Cookies.set("userToken", token, { expires: 7, path: apiBaseUrl, secure: true });
+        window.location.reload();
       })
       .catch(err => {
-        // console.error("Login error:", err);
-        console.log(err.response.data)
+        console.error("Login error:", err);
+        // console.log(err.response.data)
       });
   };
   
@@ -37,15 +35,13 @@ const App = () => {
   }) => {
     axios.post(`${apiBaseUrl}/api/user/signUp`, data)
       .then(res => {
-
-        console.log(res.data)
-        // const token = res.data.token;
-        // Cookies.set("userToken", token);
-        // window.location.reload();
+        const token = res.data.user._id;
+        Cookies.set("userToken", token, { expires: 7, path: apiBaseUrl, secure: true });
+        window.location.reload();
       })
       .catch(err => {
-        // console.error("Login error:", err);
-        console.log(err.response.data)
+        console.error("Login error:", err);
+        // console.log(err.response.data)
       });
   };
 
