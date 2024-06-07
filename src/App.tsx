@@ -6,25 +6,38 @@ import { NoPage } from "./pages/NoPage";
 import axios from "axios";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Cookies from "js-cookie";
+import Swal from "sweetalert2";
 
-
-const apiBaseUrl = import.meta.env.API_BASE_URL || 'http://localhost:3000';
+const apiBaseUrl = import.meta.env.API_BASE_URL || "http://localhost:3000";
 
 const App = () => {
   // handle login
   const handleLogin = (data: { username: string; password: string }) => {
-    axios.post(`${apiBaseUrl}/api/user/signIn`, data)
-      .then(res => {
-        const token = res.data.user._id;
+    axios
+      .post(`${apiBaseUrl}/api/user/signIn`, data)
+      .then((res) => {
+        const { data } = res,
+          { message } = data;
+        const token = data.user._id;
+        Swal.fire({
+          title: "Success!",
+          text: message,
+          icon: "success",
+        });
         Cookies.set("userToken", token, { expires: 7, path: apiBaseUrl, secure: true });
         window.location.reload();
       })
-      .catch(err => {
-        console.error("Login error:", err);
-        // console.log(err.response.data)
+      .catch((err) => {
+        const { response } = err,
+          { data } = response,
+          { message } = data;
+        Swal.fire({
+          title: "Authentication failed!",
+          text: message,
+          icon: "error",
+        });
       });
   };
-  
 
   // handle signup
   const handleSignup = (data: {
@@ -33,13 +46,18 @@ const App = () => {
     username: string;
     password: string;
   }) => {
-    axios.post(`${apiBaseUrl}/api/user/signUp`, data)
-      .then(res => {
+    axios
+      .post(`${apiBaseUrl}/api/user/signUp`, data)
+      .then((res) => {
         const token = res.data.user._id;
-        Cookies.set("userToken", token, { expires: 7, path: apiBaseUrl, secure: true });
+        Cookies.set("userToken", token, {
+          expires: 7,
+          path: apiBaseUrl,
+          secure: true,
+        });
         window.location.reload();
       })
-      .catch(err => {
+      .catch((err) => {
         console.error("Login error:", err);
         // console.log(err.response.data)
       });
@@ -53,7 +71,7 @@ const App = () => {
   return (
     <>
       <Router>
-        <Navbar isAuth={ checkAuthUser } />
+        <Navbar isAuth={checkAuthUser} />
         <Routes>
           {!checkAuthUser() && (
             <>
