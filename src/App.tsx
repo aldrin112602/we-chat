@@ -1,8 +1,10 @@
 import { Login } from "./pages/Login";
 import { Signup } from "./pages/Signup";
-import { Home } from "./pages/Home";
+import { LandingPage } from "./pages/LandingPage";
 import Navbar from "./components/Navbar";
 import { NoPage } from "./pages/NoPage";
+import { Home } from "./pages/Home";
+
 import axios from "axios";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Cookies from "js-cookie";
@@ -74,6 +76,19 @@ const App = () => {
         <Navbar isAuth={checkAuthUser} />
         <Routes>
           {!checkAuthUser() && (
+            <>
+              <Route path="/login" element={<Login onSubmit={handleLogin} />} />
+              <Route
+                path="/signup"
+                element={<Signup onSubmit={handleSignup} />}
+              />
+              <Route index path="/" element={<LandingPage />} />
+            </>
+          )}
+          
+
+          {/* If user is Auth */}
+          {checkAuthUser() && (
             <>
               <Route path="/login" element={<Login onSubmit={handleLogin} />} />
               <Route

@@ -847,6 +847,19 @@ select{
   padding-bottom: 0;
 }
 
+.col-span-3{
+  grid-column: span 3 / span 3;
+}
+
+.col-span-4{
+  grid-column: span 4 / span 4;
+}
+
+.mx-5{
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+
 .mx-auto{
   margin-left: auto;
   margin-right: auto;
@@ -888,6 +901,18 @@ select{
   margin-top: 0.5rem;
 }
 
+.mt-5{
+  margin-top: 1.25rem;
+}
+
+.mr-3{
+  margin-right: 0.75rem;
+}
+
+.mb-1{
+  margin-bottom: 0.25rem;
+}
+
 .block{
   display: block;
 }
@@ -902,6 +927,18 @@ select{
 
 .hidden{
   display: none;
+}
+
+.h-10{
+  height: 2.5rem;
+}
+
+.max-h-full{
+  max-height: 100%;
+}
+
+.max-h-screen{
+  max-height: 100vh;
 }
 
 .min-h-screen{
@@ -920,12 +957,20 @@ select{
   width: 100%;
 }
 
+.w-10{
+  width: 2.5rem;
+}
+
 .flex-grow{
   flex-grow: 1;
 }
 
 .grid-cols-1{
   grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-10{
+  grid-template-columns: repeat(10, minmax(0, 1fr));
 }
 
 .flex-col{
@@ -952,12 +997,24 @@ select{
   gap: 2.5rem;
 }
 
+.gap-4{
+  gap: 1rem;
+}
+
 .gap-6{
   gap: 1.5rem;
 }
 
 .gap-7{
   gap: 1.75rem;
+}
+
+.overflow-hidden{
+  overflow: hidden;
+}
+
+.overflow-y-auto{
+  overflow-y: auto;
 }
 
 .rounded{
@@ -972,12 +1029,33 @@ select{
   border-radius: 0.375rem;
 }
 
+.rounded-full{
+  border-radius: 9999px;
+}
+
 .border{
   border-width: 1px;
 }
 
 .border-0{
   border-width: 0px;
+}
+
+.border-l-4{
+  border-left-width: 4px;
+}
+
+.border-l-2{
+  border-left-width: 2px;
+}
+
+.border-b{
+  border-bottom-width: 1px;
+}
+
+.border-b-gray-400{
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(156 163 175 / var(--tw-border-opacity));
 }
 
 .border-t-white{
@@ -1015,6 +1093,11 @@ select{
   background-color: rgb(241 245 249 / var(--tw-bg-opacity));
 }
 
+.bg-slate-50{
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 250 252 / var(--tw-bg-opacity));
+}
+
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -1030,6 +1113,10 @@ select{
 
 .p-6{
   padding: 1.5rem;
+}
+
+.p-4{
+  padding: 1rem;
 }
 
 .px-10{
@@ -1114,6 +1201,11 @@ select{
 .text-black{
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.text-blue-500{
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246 / var(--tw-text-opacity));
 }
 
 .text-gray-500{
@@ -1219,6 +1311,11 @@ select{
 .focus\:ring-indigo-600:focus{
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(79 70 229 / var(--tw-ring-opacity));
+}
+
+.focus\:ring-slate-100:focus{
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(241 245 249 / var(--tw-ring-opacity));
 }
 
 @media (min-width: 640px){
